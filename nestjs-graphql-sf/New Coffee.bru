@@ -1,0 +1,31 @@
+meta {
+  name: New Coffee
+  type: graphql
+  seq: 3
+}
+
+post {
+  url: http://localhost:3000/graphql
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  mutation {
+    createCoffee(createCoffeeInput: {
+      name: "Shipwreck Roast - 2022",
+      brand: "Buddybrew",
+      flavors: [
+        "chocolate",
+        "vanilla"
+      ]
+    }) {
+      name
+      brand
+      flavors {
+        id
+        name
+      }
+    }
+  }
+}
